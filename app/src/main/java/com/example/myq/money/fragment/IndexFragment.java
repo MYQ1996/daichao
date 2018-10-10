@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.myq.money.CatAdapter;
+import com.example.myq.money.Category;
 import com.example.myq.money.R;
 import com.example.myq.money.pojo.Goods;
 import com.example.myq.money.pojo.Loans;
@@ -43,8 +44,13 @@ public class IndexFragment extends Fragment {
         init();
         View v = inflater.inflate(R.layout.fragment_index, container, false);
         CatAdapter adapter = new CatAdapter(v.getContext(),R.layout.good_item,good);
-        v.findViewById(R.id.list).
-//        ((ListView) findViewById(R.id.list)).setAdapter(adapter);
+        ((ListView) v.findViewById(R.id.list)).setAdapter(adapter);
+
+        CatAdapter adapter1 = new CatAdapter(v.getContext(),R.layout.good_item,good1);
+        ((ListView) v.findViewById(R.id.list1)).setAdapter(adapter1);
+
+        Category category = new Category(v.getContext(),R.layout.loan_item,loan);
+        ((ListView) v.findViewById(R.id.loanlist)).setAdapter(category);
 
         return v;
     }

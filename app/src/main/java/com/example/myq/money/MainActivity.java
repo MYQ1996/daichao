@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.myq.money.fragment.IndexFragment;
 import com.example.myq.money.fragment.SecondFragment;
@@ -15,25 +16,32 @@ import com.example.myq.money.fragment.SecondFragment;
 public class MainActivity extends AppCompatActivity{
 
     Fragment thisFragment = null;
+    TextView mTextMessage = null;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            mTextMessage = (TextView) findViewById(R.id.title);
 
             resetToDefaultIcon();
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     thisFragment = new IndexFragment();
+                    mTextMessage.setText("贷款超市");
                     this.tiao(thisFragment);
+                    item.setIcon(R.mipmap.sfz);
                     return true;
                 case R.id.navigation_dashboard:
                     thisFragment = new SecondFragment();
+                    mTextMessage.setText("推荐");
                     this.tiao(thisFragment);
                     return true;
                 case R.id.navigation_notifications:
                     this.tiao(thisFragment);
+                    mTextMessage.setText("个人中心");
                     return true;
             }
 
@@ -70,9 +78,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-//        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(navigation.getMenu().getItem(0).getItemId());//默认选中
     }
 
 

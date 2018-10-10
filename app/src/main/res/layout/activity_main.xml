@@ -7,10 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="贷款超市"
+        android:textColor="#000"
+        android:textSize="25dp"
+        android:id="@+id/title"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#ccc"/>
+
     <FrameLayout
+        android:layout_marginTop="50dp"
         android:id="@+id/main_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="35dp"
         android:background="#F1F1F1">
     </FrameLayout>
 
