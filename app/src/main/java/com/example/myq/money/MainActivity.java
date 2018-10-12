@@ -1,5 +1,6 @@
 package com.example.myq.money;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -32,7 +33,8 @@ public class MainActivity extends AppCompatActivity{
                     thisFragment = new IndexFragment();
                     mTextMessage.setText("贷款超市");
                     this.tiao(thisFragment);
-                    item.setIcon(R.mipmap.sfz);
+                    item.setIcon(R.mipmap.path_two);
+                    item.set
                     return true;
                 case R.id.navigation_dashboard:
                     thisFragment = new SecondFragment();
